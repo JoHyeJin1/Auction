@@ -2,6 +2,8 @@ package com.auction.auctionapp.service.impl;
 
 import org.springframework.stereotype.Service;
 
+import com.auction.auctionapp.service.UserService;
+
 @Service
 public class UserServiceImpl implements UserService {
 
