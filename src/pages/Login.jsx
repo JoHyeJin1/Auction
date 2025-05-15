@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as L from "../style/styledLogin";
 import { useNavigate } from "react-router-dom";
 
@@ -8,6 +8,16 @@ const Login = () => {
 
   const gotoJoin = () => {
     navigate("/join");
+  };
+
+  //로그인 완료하기
+  const [isVerified, setIsVerified] = useState(false);
+
+  const handleVerity = () => {
+    if (isVerified) return;
+    setIsVerified(true);
+    localStorage.setItem("token", "true");
+    navigate("/");
   };
 
   return (
@@ -24,7 +34,9 @@ const Login = () => {
         <input type="password" placeholder="비밀번호" />
       </L.Loginsection>
 
-      <L.LoginBtn>로그인</L.LoginBtn>
+      <L.LoginBtn onClick={handleVerity}>
+        {isVerified ? "완료" : "로그인"}
+      </L.LoginBtn>
 
       <L.GotoJoin>
         <ul>
