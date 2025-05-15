@@ -1,0 +1,12 @@
+[
+  { "img": "/images/cate1.png", "label": "디지털 기기" },
+  { "img": "/images/cate2.png", "label": "가구/인테리어" },
+  { "img": "/images/cate3.png", "label": "유아동 물품" },
+  { "img": "/images/cate4.png", "label": "여성의류" },
+  { "img": "/images/cate5.png", "label": "여성잡화" },
+  { "img": "/images/cate6.png", "label": "남성패션/잡화" },
+  { "img": "/images/cate7.png", "label": "생활가전" },
+  { "img": "/images/cate8.png", "label": "취미/게임/음반" },
+  { "img": "/images/cate9.png", "label": "뷰티/미용" },
+  { "img": "/images/cate10.png", "label": "더보기" }
+]
