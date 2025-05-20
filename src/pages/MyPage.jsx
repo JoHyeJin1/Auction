@@ -16,14 +16,16 @@ const MyPage = () => {
 
       <M.MyPageSection>
         <MypageMenu />
+        <M.MyPageContent>
+          <ProfileCard />
+          <StatusBoard title="구매 내역" data={[2, 1, 0, 1]} />
+          <StatusBoard title="판매 내역" data={[2, 1, 0, 1]} />
+          <StatusBoard title="관심 내역" data={[10, 1, 0, 1]} />
+        </M.MyPageContent>
       </M.MyPageSection>
 
       <M.Footer>
         <FooterSection />
-        <ProfileCard />
-        <StatusBoard title="구매 내역" data={[2, 1, 0, 1]} />
-        <StatusBoard title="판매매 내역" data={[2, 1, 0, 1]} />
-        <StatusBoard title="관심심 내역" data={[10, 1, 0, 1]} />
       </M.Footer>
     </M.Container>
   );

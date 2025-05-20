@@ -17,7 +17,7 @@ const Login = () => {
     if (isVerified) return;
     setIsVerified(true);
     localStorage.setItem("token", "true");
-    navigate("/");
+    navigate("/main");
   };
 
   return (

@@ -28,11 +28,17 @@ const HeaderSection = () => {
     navigate("/mypage");
   };
 
+  // 홈 이동
+
+  const goToHome = () => {
+    navigate("/main");
+  };
+
   return (
     <M.Header>
       <M.Logo>경매마당</M.Logo>
       <M.Nav>
-        <M.NavIconItem>
+        <M.NavIconItem onClick={goToHome}>
           <img
             src={`${process.env.PUBLIC_URL}/images/home.svg`}
             alt="home"

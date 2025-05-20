@@ -1,18 +1,12 @@
 import React from "react";
+import * as M from "../../style/styledMyPage";
 
 const StatusItem = ({ label, count, color }) => {
   return (
-    <div
-      style={{
-        flex: 1,
-        textAlign: "center",
-        borderRight: "1px solid #ddd",
-        fontSize: "14px",
-      }}
-    >
-      <p>{label}</p>
-      <p style={{ fontWeight: "bold", color: color || "#111" }}>{count}</p>
-    </div>
+    <M.StatusBox>
+      <M.Label>{label}</M.Label>
+      <M.Count color={color}>{count}</M.Count>
+    </M.StatusBox>
   );
 };
 
