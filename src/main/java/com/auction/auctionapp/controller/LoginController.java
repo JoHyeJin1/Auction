@@ -1,30 +1,47 @@
 package com.auction.auctionapp.controller;
 
-import com.auction.auctionapp.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/api/auth")
 public class LoginController {
 
-    private final UserService userService;
+    // 임시 아이디/비밀번호
+    private static final String TEST_ID = "user1";
+    private static final String TEST_PW = "pass123";
 
-    @Autowired
-    public LoginController(UserService userService) {
-        this.userService = userService;
+    @GetMapping("/login")
+    public String loginPage() {
+        return "login";
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String username, @RequestParam String password) {
-        // TODO: 로그인 로직
-        return "로그인 성공";
+    public String login(@RequestParam String username,
+                        @RequestParam String password,
+                        HttpSession session,
+                        Model model) {
+        if (TEST_ID.equals(username) && TEST_PW.equals(password)) {
+            session.setAttribute("loginUser", username);
+            return "redirect:/main";
+        } else {
+            model.addAttribute("error", "아이디 또는 비밀번호가 틀렸습니다.");
+            return "login";
+        }
     }
 
-    @PostMapping("/signup")
-    public String signup(@RequestParam String username, @RequestParam String password, @RequestParam String email) {
-        // TODO: 회원가입 로직
-        return "회원가입 성공";
+    @GetMapping("/main")
+    public String mainPage(HttpSession session) {
+        if (session.getAttribute("loginUser") == null) {
+            return "redirect:/login";
+        }
+        return "main";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/login";
     }
 }
