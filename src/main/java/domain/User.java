@@ -36,5 +36,17 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<Seller_Inquiry> sellerInquiries; // 판매자 문의들
+    
+    public User() {}
+    public User(String name, String password) {
+        this.name = name;
+        this.password = password;
+    }
+    public String getUsername() {
+        return name;
+    }
+    public Object getPassword() {
+        return password;
+    }
 
 }

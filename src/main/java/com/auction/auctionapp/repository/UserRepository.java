@@ -1,7 +1,12 @@
 package com.auction.auctionapp.repository;
 
-import domain.User;
+
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+import domain.User;
+
+public interface UserRepository extends JpaRepository<User, String> {
+    Optional<User> findByUsername(String username);
 }
