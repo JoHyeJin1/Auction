@@ -31,7 +31,12 @@ const HeaderSection = () => {
   // 홈 이동
 
   const goToHome = () => {
-    navigate("/main");
+    navigate("/");
+  };
+
+  //고객센터 이동
+  const goToCustomerCenter = () => {
+    navigate("/customercenter");
   };
 
   return (
@@ -48,7 +53,7 @@ const HeaderSection = () => {
         <M.NavItem>경매목록</M.NavItem>
         <M.NavItem>출품하기</M.NavItem>
         <M.NavItem onClick={goToMypage}>마이페이지</M.NavItem>
-        <M.NavItem>고객센터</M.NavItem>
+        <M.NavItem onClick={goToCustomerCenter}>고객센터</M.NavItem>
       </M.Nav>
       <M.BtnWrap>
         <M.SerchBtn>
