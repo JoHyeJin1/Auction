@@ -40,6 +40,6 @@ public class UserService {
             return false; // 아이디 중복
         }
         userRepository.save(user);  // ✅ 여기서 DB 저장
-        return true;
+        return true;x
     }
 }

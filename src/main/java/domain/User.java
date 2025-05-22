@@ -42,8 +42,8 @@ public class User {
         this.name = name;
         this.password = password;
     }
-    public String getUsername() {
-        return name;
+    public String getUserID() {
+        return userId;
     }
     public Object getPassword() {
         return password;
