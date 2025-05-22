@@ -1,7 +1,6 @@
 package com.auction.auctionapp.service;
 
-
-import domain.Product;
+import com.auction.auctionapp.domain.Product;
 
 public interface ProductService {
     void createProduct(Product product);

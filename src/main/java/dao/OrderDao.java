@@ -1,6 +1,6 @@
 package dao;
 
-import domain.Order;
+import com.auction.auctionapp.domain.Order;
 
 public interface OrderDao {
     Order findById(Long orderId);

@@ -1,8 +1,8 @@
 package dao;
 
-import domain.Inquiry;
-
 import java.util.List;
+
+import com.auction.auctionapp.domain.Inquiry;
 
 public interface InquiryDao {
     List<Inquiry> findByUserId(String userId);

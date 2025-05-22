@@ -1,9 +1,8 @@
 package dao;
 
-
-import domain.Product;
-
 import java.util.List;
+
+import com.auction.auctionapp.domain.Product;
 
 public interface ProductDao {
     List<Product> findAll();

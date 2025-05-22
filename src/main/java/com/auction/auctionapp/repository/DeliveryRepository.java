@@ -1,7 +1,8 @@
 package com.auction.auctionapp.repository;
 
-import domain.Delivery;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.auction.auctionapp.domain.Delivery;
 
 public interface DeliveryRepository extends JpaRepository<Delivery, Long> {
 }

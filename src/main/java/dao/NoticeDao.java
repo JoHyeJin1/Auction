@@ -1,8 +1,8 @@
 package dao;
 
-import domain.Notice;
-
 import java.util.List;
+
+import com.auction.auctionapp.domain.Notice;
 
 public interface NoticeDao {
     List<Notice> findAll();

@@ -1,8 +1,8 @@
 package dao;
 
-import domain.QnA;
-
 import java.util.List;
+
+import com.auction.auctionapp.domain.QnA;
 
 public interface QnADao {
     List<QnA> findAll();

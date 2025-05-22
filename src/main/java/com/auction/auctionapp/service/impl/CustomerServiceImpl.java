@@ -1,6 +1,13 @@
 package com.auction.auctionapp.service.impl;
 
+import com.auction.auctionapp.model.Customer;
+import com.auction.auctionapp.repository.CustomerRepository;
 import com.auction.auctionapp.service.CustomerService;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service

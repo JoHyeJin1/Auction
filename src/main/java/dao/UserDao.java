@@ -1,7 +1,6 @@
 package dao;
 
-import domain.User;
-
+import com.auction.auctionapp.domain.User;
 
 public interface UserDao {
 
@@ -9,5 +8,4 @@ public interface UserDao {
         void insertUser(User user);
         void updateUser(User user);
         void deleteUser(String userId);
-
 }

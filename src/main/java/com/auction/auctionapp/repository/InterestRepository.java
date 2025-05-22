@@ -1,7 +1,8 @@
 package com.auction.auctionapp.repository;
 
-import domain.Interest;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.auction.auctionapp.domain.Interest;
 
 public interface InterestRepository extends JpaRepository<Interest, Long> {
 }
