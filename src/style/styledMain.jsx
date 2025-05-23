@@ -10,12 +10,13 @@ export const Container = styled.div`
 
 export const Header = styled.div`
   width: 100%;
-  height: 70px;
+  height: 50px;
   background: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 30px;
+  margin: 10px 0;
+  padding: 0;
 `;
 
 export const Logo = styled.div`
@@ -140,7 +141,7 @@ export const loginBtn = styled.div`
     text-decoration: underline;
   }
 `;
-
+export const SliderMain = styled.div``;
 export const Slider = styled.div`
   width: 100%;
   height: 300px;
@@ -160,6 +161,7 @@ export const SlideWrapper = styled.div`
 
 export const SlideList = styled.div`
   display: flex;
+  width: 100%;
   height: 100%;
   transition: transform 0.5s ease-in-out;
   transform: ${({ $current }) => `translateX(-${$current * 100}%)`};
@@ -289,17 +291,6 @@ export const HotCard = styled.div`
       object-fit: contain;
     }
 
-    .badge {
-      position: absolute;
-      bottom: 8px;
-      left: 8px;
-      background: #000;
-      color: #fff;
-      font-size: 12px;
-      padding: 2px 6px;
-      border-radius: 4px;
-    }
-
     .bookmark {
       position: absolute;
       top: 8px;
@@ -342,21 +333,6 @@ export const HotCard = styled.div`
       font-size: 12px;
       color: #555;
     }
-  }
-`;
-
-export const HotMoreBtn = styled.button`
-  margin: 30px auto 0;
-  display: block;
-  padding: 10px 24px;
-  background: #eee;
-  border: none;
-  border-radius: 20px;
-  font-size: 14px;
-  cursor: pointer;
-
-  &:hover {
-    background: #ddd;
   }
 `;
 

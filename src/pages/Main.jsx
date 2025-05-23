@@ -52,7 +52,7 @@ const Main = () => {
       <M.Header>
         <HeaderSection />
       </M.Header>
-      <M.Slider>
+      <M.SliderMain>
         <M.SlideWrapper>
           <M.SlideList $current={current}>
             {images.map((img, i) => (
@@ -76,7 +76,7 @@ const Main = () => {
             />
           </M.Rbtn>
         </M.SlideWrapper>
-      </M.Slider>
+      </M.SliderMain>
       <M.Category>
         <h2>카테고리</h2>
         <M.CategoryGrid>

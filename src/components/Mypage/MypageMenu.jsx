@@ -20,9 +20,9 @@ const MypageMenu = () => {
           <li>로그인 정보</li>
           <li>프로필 관리</li>
           <li>주소록</li>
-          <li>결제 정보</li>
+          {/* <li>결제 정보</li>
           <li>판매 정산 계좌</li>
-          <li>현금영수증 정보</li>
+          <li>현금영수증 정보</li> */}
         </ul>
       </div>
     </M.MenuWrap>

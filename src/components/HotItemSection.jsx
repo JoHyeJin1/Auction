@@ -10,7 +10,6 @@ const HotItemSection = ({ itemList }) => {
           <M.HotCard key={index}>
             <div className="thumb">
               <img src={process.env.PUBLIC_URL + item.img} alt={item.title} />
-              <span className="badge"> 경매 {item.id}</span>
               <img
                 className="bookmark"
                 src="/images/bookmark.svg"
@@ -28,7 +27,6 @@ const HotItemSection = ({ itemList }) => {
           </M.HotCard>
         ))}
       </M.HotItemGrid>
-      <M.HotMoreBtn>더보기</M.HotMoreBtn>
     </M.HotItemWrapper>
   );
 };

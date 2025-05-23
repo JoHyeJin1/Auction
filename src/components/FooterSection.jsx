@@ -34,7 +34,7 @@ const FooterSection = () => {
 
       <M.FooterBottom>
         <div className="left">
-          <ul>
+          {/* <ul>
             <li>회사소개</li>
             <li>인재채용</li>
             <li>제휴제안</li>
@@ -42,11 +42,11 @@ const FooterSection = () => {
             <li>
               <strong>개인정보처리방침</strong>
             </li>
-          </ul>
+          </ul> */}
           <p>
             경매마당 대표 : 동덕여자대학교 우당탕탕
             <br />
-            사업자 : 박슬기, 조혜린, 한지혜
+            사업자 : 박슬기, 한지혜, 조혜린
             <br />
             대표 연락처 : 20221881@dongduk.ac.kr
             <br />

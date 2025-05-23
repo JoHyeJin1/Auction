@@ -85,7 +85,7 @@ const Join = () => {
             <input type="tel" placeholder="010-000-000" />
           </div>
 
-          <div className="input-row">
+          {/* <div className="input-row">
             <label>결제 유형 등록</label>
             <select>
               <option>선택하세요</option>
@@ -93,6 +93,23 @@ const Join = () => {
               <option>카드</option>
               <option>계좌이체</option>
             </select>
+          </div> */}
+          <div className="input-row">
+            <label>계좌번호 입력</label>
+            <br />
+            <select>
+              <option>은행선택</option>
+              <br />
+              <option>신한은행</option>
+              <option>국민은행</option>
+              <option>농협은행</option>
+              <option>신협은행</option>
+              <option>카카오뱅크</option>
+              <option>IBK기업은행</option>
+              <option>우리은행</option>
+            </select>{" "}
+            <br />
+            <input type="text" placeholder="정산받을 계좌번호 입력"></input>
           </div>
         </J.JoinBox>
 

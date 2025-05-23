@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as M from "../style/styledMain";
 import { useNavigate } from "react-router-dom";
+import SerchTap from "../pages/SerchTap";
 
 const HeaderSection = () => {
   //로그인 상태관리
@@ -39,6 +40,21 @@ const HeaderSection = () => {
     navigate("/customercenter");
   };
 
+  //상품목록 이동
+  const goList = () => {
+    navigate("/itemlist");
+  };
+  //판매하기 이동
+  const gosell = () => {
+    navigate("/gosell");
+  };
+
+  //검색화면창 이동
+  const [open, setOpen] = useState(false);
+  const goSerch = () => {
+    // navigate("/serchtap");
+    setOpen(true);
+  };
   return (
     <M.Header>
       <M.Logo>경매마당</M.Logo>
@@ -50,8 +66,8 @@ const HeaderSection = () => {
             width="30px"
           />
         </M.NavIconItem>
-        <M.NavItem>경매목록</M.NavItem>
-        <M.NavItem>출품하기</M.NavItem>
+        <M.NavItem onClick={goList}>상품목록</M.NavItem>
+        <M.NavItem onClick={gosell}>판매하기</M.NavItem>
         <M.NavItem onClick={goToMypage}>마이페이지</M.NavItem>
         <M.NavItem onClick={goToCustomerCenter}>고객센터</M.NavItem>
       </M.Nav>
@@ -61,8 +77,11 @@ const HeaderSection = () => {
             src={`${process.env.PUBLIC_URL}/images/search.svg`}
             alt="search"
             width="30px"
+            onClick={goSerch}
           />
         </M.SerchBtn>
+        {open && <SerchTap onClose={() => setOpen(false)} />}
+
         {isLoggedIn ? (
           <M.loginBtn onClick={logout}>로그아웃</M.loginBtn>
         ) : (

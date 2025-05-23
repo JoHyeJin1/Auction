@@ -20,9 +20,13 @@ const Login = () => {
     navigate("/main");
   };
 
+  const goHome = () => {
+    navigate("/");
+  };
+
   return (
     <L.LoginWrapper>
-      <h2>경매마당</h2>
+      <h2 onClick={goHome}>경매마당</h2>
 
       <L.Loginsection>
         <label>아이디</label>

@@ -20,6 +20,7 @@ export const LoginWrapper = styled.div`
     text-transform: uppercase;
     text-align: center;
     padding-top: 10px;
+    cursor: pointer;
   }
 `;
 export const Loginsection = styled.div`
