@@ -5,3 +5,8 @@
 Customer -> User로 수정
 <br>
 그에 따른 Controller, Repository, ServiceImpl, Service 수정
+
+<br>
+5.27일
+<br>
+data.sql 수정 - 테이블 정의, 데이터 넣음
