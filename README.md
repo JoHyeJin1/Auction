@@ -9,4 +9,4 @@ Customer -> User로 수정
 <br>
 25.5.27
 <br>
-data.sql 수정 - 테이블 정의, 데이터 넣음
+data.sql 수정 - 테이블 정의, 테이블에 데이터들 넣음
