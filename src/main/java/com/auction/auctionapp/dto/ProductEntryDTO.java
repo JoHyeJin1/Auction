@@ -30,8 +30,4 @@ public class ProductEntryDTO {
     private String productStatus;
 
     private LocalDate deadline;
-
-
-
-
 }

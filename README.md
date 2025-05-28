@@ -5,3 +5,8 @@
 Customer -> User로 수정
 <br>
 그에 따른 Controller, Repository, ServiceImpl, Service 수정
+
+<br>
+25.5.27
+<br>
+data.sql 수정 - 테이블 정의, 테이블에 데이터들 넣음
