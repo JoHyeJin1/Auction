@@ -21,7 +21,6 @@ INSERT INTO category(name) VALUES
                                ('취미/게임/음반'),
                                ('뷰티/미용');
 
-
 INSERT INTO UserInterestCategory (user_id, category_id) VALUES
                                                             ('HongGillDong', 1),
                                                             ('HongGillDong', 2),
@@ -56,7 +55,6 @@ INSERT INTO Address (user_id, receiver_name, receiver_phone, zipcode, address, i
                                                                                                ('LeeChulSoo', '이철수', '010-3333-4444', '42035', '대구광역시 수성구 달구벌대로 1234', TRUE),
                                                                                                ('ParkMinSoo', '박민수', '010-4567-8901', '13595', '경기도 성남시 분당구 판교로 242', TRUE),
                                                                                                ('ChoiJiWoo', '최지우', '010-5678-9012', '21987', '인천광역시 연수구 송도과학로 27', TRUE);
-
 
 
 
