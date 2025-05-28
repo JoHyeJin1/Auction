@@ -4,9 +4,16 @@
 <br>
 Customer -> User로 수정
 <br>
-그에 따른 Controller, Repository, ServiceImpl, Service 수정
+그에 따른 Controller, Repository, ServiceImpl, Service 수정.
 
 <br>
 25.5.27
 <br>
-data.sql 수정 - 테이블 정의, 테이블에 데이터들 넣음
+data.sql 수정 - 테이블 정의, 테이블에 데이터들 넣음.
+
+<br>
+<br>
+25.5.28
+<br>
+data.sql에는 INSERT INTO문만 들어가도록 수정 <br>
+그에 따른 DAO 수정, 가격을 받을 때, BigDemical로 받아서 DTO의 dto.getPrice() 부분 수정함.
