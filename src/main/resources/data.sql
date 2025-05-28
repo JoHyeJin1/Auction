@@ -1,18 +1,18 @@
 use auction;
 #user 부분 data
-#user domain에 없는 column 추가
-ALTER TABLE `user`
-    ADD COLUMN intro TEXT,
-    ADD COLUMN profile_image VARCHAR(255);
+# #user domain에 없는 column 추가
+# ALTER TABLE `user`
+#     ADD COLUMN intro TEXT,
+#     ADD COLUMN profile_image VARCHAR(255);
 #user Column 형태 바꿔야 할 부분
-ALTER TABLE `user`
-    MODIFY user_no BIGINT NOT NULL AUTO_INCREMENT,
-    MODIFY nickname VARCHAR(50) unique,
-    MODIFY user_id VARCHAR(50) unique,
-    MODIFY password VARCHAR(100),
-    MODIFY email VARCHAR(100),
-    MODIFY phone_number VARCHAR(20),
-    MODIFY account_no VARCHAR(100);
+# ALTER TABLE `user`
+#     MODIFY user_no BIGINT NOT NULL AUTO_INCREMENT,
+#     MODIFY nickname VARCHAR(50) unique,
+#     MODIFY user_id VARCHAR(50) unique,
+#     MODIFY password VARCHAR(100),
+#     MODIFY email VARCHAR(100),
+#     MODIFY phone_number VARCHAR(20),
+#     MODIFY account_no VARCHAR(100);
 #user에 data 추가
 INSERT INTO `user` (nickname, user_id, password, address, category, email, phone_number, bank, account_no, intro, profile_image) VALUES
                                                                                                                ('홍길동', 'HongGillDong', 'hong12', NULL, NULL, NULL, '000-1111-2222', NULL, NULL, NULL, NULL),
@@ -24,11 +24,11 @@ INSERT INTO `user` (nickname, user_id, password, address, category, email, phone
 
 #category 부분 data
 #category table 생성
-describe category;
-CREATE TABLE category(
-    category_id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50)
-);
+# describe category;
+# CREATE TABLE category(
+#     category_id INT AUTO_INCREMENT PRIMARY KEY,
+#     name VARCHAR(50)
+# );
 #category에 data 추가
 INSERT INTO category(name) VALUES
                                ('디지털 기기'),
@@ -44,15 +44,15 @@ INSERT INTO category(name) VALUES
 
 #UserInterestCategory 부분
 #UserInterestCategory table 생성
-CREATE TABLE UserInterestCategory (
-                                      user_id VARCHAR(50),
-                                      category_id INT,
-                                      PRIMARY KEY (user_id, category_id)
-);
+# CREATE TABLE UserInterestCategory (
+#                                       user_id VARCHAR(50),
+#                                       category_id INT,
+#                                       PRIMARY KEY (user_id, category_id)
+# ); 둘 다 프라이머리는 어떻게 되는지 모르겠음
 #UserInterestCategory 연관관계 설정
-ALTER TABLE UserInterestCategory
-    ADD CONSTRAINT fk_userInterestCategory_user_id FOREIGN KEY (user_id) REFERENCES `user`(user_id),
-    ADD CONSTRAINT fk_userInterestCategory_category_id FOREIGN KEY (category_id) REFERENCES category(category_id);
+# ALTER TABLE UserInterestCategory
+#     ADD CONSTRAINT fk_userInterestCategory_user_id FOREIGN KEY (user_id) REFERENCES `user`(user_id),
+#     ADD CONSTRAINT fk_userInterestCategory_category_id FOREIGN KEY (category_id) REFERENCES category(category_id);
 #UserInterestCategory에 data 추가
 INSERT INTO UserInterestCategory (user_id, category_id) VALUES
                                                             ('HongGillDong', 1),
@@ -61,23 +61,23 @@ INSERT INTO UserInterestCategory (user_id, category_id) VALUES
                                                             ('KimYoungHee', 3);
 
 #product 부분 data
-ALTER TABLE product
-    ADD COLUMN category_id INT,
-    ADD COLUMN image_path VARCHAR(255),
-    ADD COLUMN `condition` ENUM('새상품', '사용감 없음', '사용감 적음', '사용감 많음', '고장/파손'),
-    ADD COLUMN created_at DATETIME;
+# ALTER TABLE product
+#     ADD COLUMN category_id INT,
+#     ADD COLUMN image_path VARCHAR(255),
+#     ADD COLUMN `condition` ENUM('새상품', '사용감 없음', '사용감 적음', '사용감 많음', '고장/파손'),
+#     ADD COLUMN created_at DATETIME;
 
-ALTER TABLE product
-    MODIFY user_id VARCHAR(50),
-    MODIFY seller_id VARCHAR(50),
-    MODIFY product_price DECIMAL(10,2),
-    MODIFY name VARCHAR(100),
-    MODIFY description TEXT;
-#연관관계 설정
-ALTER TABLE product
-    ADD CONSTRAINT fk_product_seller_id FOREIGN KEY (seller_id) REFERENCES `user`(user_id),
-    ADD CONSTRAINT fk_product_user_id FOREIGN KEY (user_id) REFERENCES `user`(user_id),
-    ADD CONSTRAINT fk_product_category_id FOREIGN KEY (category_id) REFERENCES category(category_id);
+# ALTER TABLE product
+#     MODIFY user_id VARCHAR(50),
+#     MODIFY seller_id VARCHAR(50),
+#     MODIFY product_price DECIMAL(10,2),
+#     MODIFY name VARCHAR(100),
+#     MODIFY description TEXT;
+# #연관관계 설정
+# ALTER TABLE product
+#     ADD CONSTRAINT fk_product_seller_id FOREIGN KEY (seller_id) REFERENCES `user`(user_id),
+#     ADD CONSTRAINT fk_product_user_id FOREIGN KEY (user_id) REFERENCES `user`(user_id),
+#     ADD CONSTRAINT fk_product_category_id FOREIGN KEY (category_id) REFERENCES category(category_id);
 
 INSERT INTO product(deadline, product_price, seller_id, user_id, description, name, status, category_id, image_path, `condition`, created_at) VALUES
                                                                                                                                                                      ('2025-06-10',50000, 'HongGillDong', NULL, '거의 새것 같은 디지털 카메라입니다.', '디지털 카메라', 'ON_SALE', 1, NULL,'사용감 없음', NOW()),
@@ -87,15 +87,15 @@ INSERT INTO product(deadline, product_price, seller_id, user_id, description, na
 
 #Wishlist 부분
 #wishlist table 생성
-CREATE TABLE Wishlist(
-                        wishlist_id BIGINT PRIMARY KEY AUTO_INCREMENT,
-                        user_id VARCHAR(50),
-                        product_id BIGINT
-);
+# CREATE TABLE Wishlist(
+#                         wishlist_id BIGINT PRIMARY KEY AUTO_INCREMENT,
+#                         user_id VARCHAR(50),
+#                         product_id BIGINT
+# );
 #연관관계 설정
-ALTER TABLE wishlist
-    ADD CONSTRAINT fk_wishlist_user_id FOREIGN KEY (user_id) references `user`(user_id),
-    ADD CONSTRAINT fk_wishlist_product_id FOREIGN KEY (product_id) references product(product_id);
+# ALTER TABLE wishlist
+#     ADD CONSTRAINT fk_wishlist_user_id FOREIGN KEY (user_id) references `user`(user_id),
+#     ADD CONSTRAINT fk_wishlist_product_id FOREIGN KEY (product_id) references product(product_id);
 #wishlist에 data 추가
 INSERT INTO Wishlist (user_id, product_id) VALUES
                                                ('HongGillDong', 1),
@@ -105,22 +105,22 @@ INSERT INTO Wishlist (user_id, product_id) VALUES
 
 #order 부분 data
 #order domain에 없는 column 추가
-describe `order`;
-ALTER TABLE `order`
-    ADD COLUMN product_id BIGINT,
-    ADD COLUMN receiver_name VARCHAR(50),
-    ADD COLUMN receiver_phone VARCHAR(20),
-    ADD COLUMN ordered_at DATETIME;
-#바꿔야 할 형태
-ALTER TABLE `order`
-    MODIFY buyer_id VARCHAR(50),
-    MODIFY `order_status` ENUM('구매완료', '취소'),
-    MODIFY shipping_address VARCHAR(255),
-    MODIFY total_price DECIMAL(10, 2) NULL;
+# describe `order`;
+# ALTER TABLE `order`
+#     ADD COLUMN product_id BIGINT,
+#     ADD COLUMN receiver_name VARCHAR(50),
+#     ADD COLUMN receiver_phone VARCHAR(20),
+#     ADD COLUMN ordered_at DATETIME;
+# #바꿔야 할 형태
+# ALTER TABLE `order`
+#     MODIFY buyer_id VARCHAR(50),
+#     MODIFY `order_status` ENUM('구매완료', '취소'),
+#     MODIFY shipping_address VARCHAR(255),
+#     MODIFY total_price DECIMAL(10, 2) NULL;
 #order 관련 연관 관계 설정
-ALTER TABLE `order`
-    ADD CONSTRAINT fk_order_buyer_id FOREIGN KEY (buyer_id) REFERENCES `user`(user_id),
-    ADD CONSTRAINT fk_order_product_id FOREIGN KEY (product_id) REFERENCES product(product_id);
+# ALTER TABLE `order`
+#     ADD CONSTRAINT fk_order_buyer_id FOREIGN KEY (buyer_id) REFERENCES `user`(user_id),
+#     ADD CONSTRAINT fk_order_product_id FOREIGN KEY (product_id) REFERENCES product(product_id);
 #order부분 data 추가
 INSERT INTO `order`(buyer_id, order_status, shipping_address, product_id, receiver_name, receiver_phone, ordered_at) VALUES
                                                                                                                          ('HongGillDong', '구매완료', '서울특별시 강남구 역삼동 123-45', 1, '홍길동', '010-1111-2222', NOW()),
@@ -129,7 +129,7 @@ INSERT INTO `order`(buyer_id, order_status, shipping_address, product_id, receiv
 
 #Address 부분
 #Address table 생성
-describe address;
+# describe address;
 CREATE TABLE Address(
                     address_id INT AUTO_INCREMENT PRIMARY KEY,
                     user_id VARCHAR(50),
@@ -140,8 +140,8 @@ CREATE TABLE Address(
                     is_default BOOLEAN
 );
 #Address 부분 연관 관계 설정
-ALTER TABLE Address
-    ADD CONSTRAINT fk_address_user_id FOREIGN KEY (user_id) REFERENCES `user`(user_id);
+# ALTER TABLE Address
+#     ADD CONSTRAINT fk_address_user_id FOREIGN KEY (user_id) REFERENCES `user`(user_id);
 #Address 부분 data 추가
 INSERT INTO Address (user_id, receiver_name, receiver_phone, zipcode, address, is_default) VALUES
                                                                                                ('HongGillDong', '홍길동', '010-1111-2222', '06234', '서울특별시 강남구 테헤란로 123', TRUE),
@@ -155,12 +155,12 @@ INSERT INTO Address (user_id, receiver_name, receiver_phone, zipcode, address, i
 
 #Notice 부분
 #notice domain에 없는 column 추가
-ALTER TABLE notice
-    ADD COLUMN `type` ENUM('공지', '이벤트', '서비스 안내');
+# ALTER TABLE notice
+#     ADD COLUMN `type` ENUM('공지', '이벤트', '서비스 안내');
 #형태 바꿔야 할 부분
-ALTER TABLE notice
-    MODIFY content text,
-    MODIFY title VARCHAR(100);
+# ALTER TABLE notice
+#     MODIFY content text,
+#     MODIFY title VARCHAR(100);
 #notice에 data 추가
 INSERT INTO notice (title, content, type, created_at) VALUES
                                                           ('서버 점검 안내', '시스템 안정화를 위한 서버 점검이 6월 5일 새벽 1시부터 3시까지 진행됩니다.', '서비스 안내', NOW()),
@@ -171,13 +171,12 @@ INSERT INTO notice (title, content, type, created_at) VALUES
 
 #qna 부분
 #qna table에 없는 column 추가
-describe qna;
-ALTER TABLE qna
-    ADD COLUMN `category` ENUM('이용정책', '구매', '판매');
+# ALTER TABLE qna
+#     ADD COLUMN `category` ENUM('이용정책', '구매', '판매');
 #qna table column들 형태 변환
-ALTER TABLE qna
-    MODIFY answer TEXT,
-    MODIFY question TEXT;
+# ALTER TABLE qna
+#     MODIFY answer TEXT,
+#     MODIFY question TEXT;
 #qna table data 추가
 INSERT INTO qna (question, answer, category) VALUES
                                                  ('회원 탈퇴는 어떻게 하나요?', '마이페이지 > 계정설정 > 회원탈퇴에서 진행하실 수 있습니다.', '이용정책'),

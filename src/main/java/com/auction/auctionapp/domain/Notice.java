@@ -1,9 +1,7 @@
 package com.auction.auctionapp.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.auction.auctionapp.domain.enums.NoticeType;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,7 +16,16 @@ public class Notice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long noticeId;
 
+    @Column(name = "title", length = 100)
     private String title;
+
+    @Column(columnDefinition = "TEXT")
     private String content;
+
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "type", length = 20)
+    private NoticeType type;
 }

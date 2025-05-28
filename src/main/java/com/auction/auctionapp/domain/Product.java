@@ -1,11 +1,13 @@
 package com.auction.auctionapp.domain;
 
+import com.auction.auctionapp.domain.enums.ProductCondition;
 import com.auction.auctionapp.domain.enums.ProductStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import jakarta.persistence.Id;
 
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -25,7 +27,7 @@ public class Product {
 
     // 경매와 양방향 일대일 관계
     @OneToOne(mappedBy = "product", cascade = CascadeType.ALL)
-        private Auction auction;
+    private Auction auction;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Product_Images> images = new ArrayList<>();
@@ -33,21 +35,35 @@ public class Product {
     @Enumerated(EnumType.STRING)
     private ProductStatus status;
 
-    // 판매자 (User)와 다대일 관계
-    @ManyToOne
-    @JoinColumn(name = "seller_id")
-    private User seller;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
+    @ManyToOne
+    @JoinColumn(name = "seller_id")
+    private User seller;
+
     private LocalDate deadline;
 
+    @Column(length = 100)
     private String name;
+
+    @Column(columnDefinition = "TEXT")
     private String description;
-    private int productPrice;
-   // private String imageUrl;
 
+    @Column(name = "product_price", precision = 10, scale = 2)
+    private BigDecimal productPrice;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category categoryId;
+
+    @Column(name = "image_path", length = 255)
+    private String imagePath;
+
+    @Column(name = "`conditon`", length = 20)
+    private ProductCondition condition;
+
+    @Column(name="created_at")
+    private LocalDateTime createdAt;
 }

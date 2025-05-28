@@ -4,6 +4,7 @@ import lombok.*;
 
 import org.antlr.v4.runtime.misc.NotNull;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -20,7 +21,7 @@ public class ProductEntryDTO {
 
     private String productDescription;
 
-    private int productPrice;
+    private BigDecimal productPrice;
 
     private String productImage;
 
