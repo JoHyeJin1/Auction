@@ -1,9 +1,19 @@
 package com.auction.auctionapp.domain.enums;
 
 public enum ProductCondition {
-    새상품,
-    사용감_없음,
-    사용감_적음,
-    사용감_많음,
-    고장_파손
+    NEW("새상품"),
+    LIKE_NEW("사용감 없음"),
+    LIGHTLY_USED("사용감 적음"),
+    HEAVILY_USED("사용감 많음"),
+    DAMAGED("고장/파손");
+
+    private final String displayName;
+
+    ProductCondition(String displayName) {
+        this.displayName = displayName;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
 }

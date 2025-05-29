@@ -61,6 +61,7 @@ public class Product {
     @Column(name = "image_path", length = 255)
     private String imagePath;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "`conditon`", length = 20)
     private ProductCondition condition;
 
