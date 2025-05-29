@@ -23,6 +23,7 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "product_id")
     private Long productId;
 
     // 경매와 양방향 일대일 관계
@@ -36,11 +37,11 @@ public class Product {
     private ProductStatus status;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "seller_id")
+    @JoinColumn(name = "seller_id", referencedColumnName = "user_id")
     private User seller;
 
     private LocalDate deadline;
@@ -55,14 +56,14 @@ public class Product {
     private BigDecimal productPrice;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "category_id", referencedColumnName = "category_id")
     private Category categoryId;
 
     @Column(name = "image_path", length = 255)
     private String imagePath;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "`conditon`", length = 20)
+    @Column(name = "`condition`", length = 20)
     private ProductCondition condition;
 
     @Column(name="created_at")
